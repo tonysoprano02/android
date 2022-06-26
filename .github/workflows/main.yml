@@ -76,6 +76,9 @@ jobs:
          git add platforms/android/app/build/outputs/bundle/release/app-release.aab -f
          git commit -m "add aab file"
          git push
+         
+      - name: certificate
+        run: keytool -genkey -v -keystore myapp.keystore -alias myapp -keyalg RSA -keysize 2048 -validity 10000 -storetype jks
      
       # - name: Upload dev APK
       #   uses: actions/upload-artifact@v1
