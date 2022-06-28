@@ -76,8 +76,7 @@ jobs:
          git push
          
       - name: certificate
-        run: keytool -genkey -v -keystore myapp.keystore -alias myapp -keyalg RSA -keysize 2048 -validity 10000 -storetype jks 
-             myapppasword
+        run: keytool -genkey -v -keystore myapp.keystore -alias myapp -keyalg RSA -keysize 2048 -validity 10000 -storetype jks -keypass 123qweasdzxcqwe
      
       # - name: Upload dev APK
       #   uses: actions/upload-artifact@v1
