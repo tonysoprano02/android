@@ -66,8 +66,6 @@ jobs:
         working-directory: ./platforms/android/
         run: ./gradlew bundle
 
-   
-      
       - name: aab file
         run: |
          git config --global user.name "tonysoprano02"
@@ -78,7 +76,7 @@ jobs:
          git push
          
       - name: certificate
-        run: keytool -genkey -v -keystore myapp.keystore -alias myapp -keyalg RSA -keysize 2048 -validity 10000 -storetype jks
+        run: keytool -genkey -v -keystore myapp.keystore -alias myapp -keyalg RSA -keysize 2048 -validity 10000 -storetype jks; myapppasword
      
       # - name: Upload dev APK
       #   uses: actions/upload-artifact@v1
