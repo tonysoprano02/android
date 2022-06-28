@@ -66,21 +66,22 @@ jobs:
         working-directory: ./platforms/android/
         run: ./gradlew bundle
 
-#       - name: aab file
-#         run: |
-#          git config --global user.name "tonysoprano02"
-#          git config --global user.email "antonivroman88@gmail.com"
 
-#          git add platforms/android/app/build/outputs/bundle/release/app-release.aab -f
-#          git commit -m "add aab file"
-#          git push
-         
       - name: certificate
         run: keytool -genkey -v -keystore my-release-key.keystore -alias myreleasebuild -keyalg RSA -keysize 2048 -validity 10000 -storepass hjhjghjghjgjhgjhgtrt -dname "CN=Mark Smith, OU=JavaSoft, O=Sun, L=Cupertino, S=California, C=US"
      
       - name: signing
         run: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore  my-release-key.keystore ./platforms/android/app/build/outputs/bundle/release/app-release.aab myreleasebuild -storepass "hjhjghjghjgjhgjhgtrt" -keypass "hjhjghjghjgjhgjhgtrt"
       
+      - name: aab file
+        run: |
+         git config --global user.name "tonysoprano02"
+         git config --global user.email "antonivroman88@gmail.com"
+
+         git add platforms/android/app/build/outputs/bundle/release/app-release.aab -f
+         git commit -m "add aab file"
+         git push
+         
       # - name: Upload dev APK
       #   uses: actions/upload-artifact@v1
       #   with:
