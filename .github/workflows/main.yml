@@ -76,7 +76,7 @@ jobs:
 #          git push
          
       - name: certificate
-        run: keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000 -storepass hjhjghjghjgjhgjhgtrt && name123
+        run: keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000 -storepass hjhjghjghjgjhgjhgtrt -dname "CN=Mark Smith, OU=JavaSoft, O=Sun, L=Cupertino, S=California, C=US"
       
       # - name: Upload dev APK
       #   uses: actions/upload-artifact@v1
